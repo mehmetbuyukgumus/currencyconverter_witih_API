@@ -35,6 +35,7 @@ select {
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #45a049;
+button{
+    display: flex;
+    flex-direction: column;
 }
