@@ -3,13 +3,14 @@ import style from '../styles/style.css'
 import React from "react";
 import axios from 'axios';
 
+
 export default function Home() {
     const [amount, setamount] = React.useState(0);
     const [fromCurrency, setfromCurrency] = React.useState("USD");
     const [toCurrency, settoCurrency] = React.useState("TRY");
 
     function getRate(fromCurrency, toCurrency) {
-        const url = "http://api.exchangeratesapi.io/v1/latest?access_key=4fdef46479e7a6d325425905428c9270"
+        const url = "http://api.exchangeratesapi.io/v1/latest?access_key=API_KEY"
         const endpoint = `${url}&base=${fromCurrency}&symbols=${toCurrency},`;
         axios.get(endpoint)
             .then(function (res) {
