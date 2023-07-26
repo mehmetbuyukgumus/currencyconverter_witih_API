@@ -7,10 +7,8 @@ export default function Home() {
     const [amount, setamount] = React.useState(0);
     const [fromCurrency, setfromCurrency] = React.useState("USD");
     const [toCurrency, settoCurrency] = React.useState("TRY");
-    function convertCurrency(amount, fromCurrency, toCurrency) {
-        // const amount = parseFloat(document.getElementById("amountInput").value);
-        // const fromCurrency = document.getElementById("fromCurrency").value;
-        // const toCurrency = document.getElementById("toCurrency").value;
+
+    function convertCurrency() {
         const rates = {
             TRY: 1,
             USD: 28,
@@ -18,39 +16,42 @@ export default function Home() {
         };
         const result = amount * rates[fromCurrency] / rates[toCurrency];
         return result.toFixed(2);
-        // document.getElementById("resultInput").value = result.toFixed(2);
     }
-    function updateAmout(value) {
-        setamount(value);
+
+    function updateAmout(event) {
+        setamount(event.target.value);
     }
-    function updatefromCurrency(value) {
-        setfromCurrency(value);
+
+    function updatefromCurrency(event) {
+        setfromCurrency(event.target.value);
     }
-    function updatetoCurrency(value) {
-        settoCurrency(value);
+
+    function updatetoCurrency(event) {
+        settoCurrency(event.target.value);
     }
-  return (
-   <div>
-   <h3>Currency Converter</h3>
-    <div class="container">
-        <div class="input-container">
-            <input type="text" id="amountInput" placeholder="Miktar Giriniz..." onChange={updateAmout}></input>
-            <select id="fromCurrency" onChange={updatefromCurrency}>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="TRY">TRY</option>
-            </select>
+
+    return (
+        <div>
+            <h3>Currency Converter</h3>
+            <div className="container">
+                <div className="input-container">
+                    <input type="text" id="amountInput" placeholder="Miktar Giriniz..." onChange={updateAmout}></input>
+                    <select id="fromCurrency" onChange={updatefromCurrency}>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="TRY">TRY</option>
+                    </select>
+                </div>
+                <div className="input-container">
+                    <input type="text" id="resultInput" placeholder="Sonuç" value={convertCurrency()} disabled></input>
+                    <select id="toCurrency" onChange={updatetoCurrency}>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="TRY">TRY</option>
+                    </select>
+                </div>
+             
+            </div>
         </div>
-        <div class="input-container">
-            <input type="text" id="resultInput" placeholder="Sonuç" disabled></input>
-            <select id="toCurrency" onChange={updatetoCurrency}>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="TRY">TRY</option>
-            </select>
-        </div>
-        <button onclick = {convertCurrency}>Çevir</button>
-        </div>
-    </div>
-  )
+    )
 }
