@@ -13,7 +13,7 @@ export default function Home() {
     
 
     function getRate(fromCurrency, toCurrency) {
-        const url = "http://api.exchangeratesapi.io/v1/latest?access_key=4fdef46479e7a6d325425905428c9270"
+        const url = "http://api.exchangeratesapi.io/v1/latest?access_key=API_KEY"
         const endpoint = `${url}&base=${fromCurrency}&symbols=${toCurrency},`;
         axios.get(endpoint)
             .then(function (res) {
