@@ -3,9 +3,8 @@ import app from './app'
 
 export default function Home() {
   return (
-    
    <div>
-   <h3>Currency Convertor</h3>
+   <h3>Currency Converter</h3>
     <div class="container">
         <div class="input-container">
             <input type="number" id="amountInput" placeholder="Miktar Giriniz..." step="0.01"></input>
